@@ -1,1 +1,1 @@
-# switcher-woJS
+# switcher

@@ -1,0 +1,130 @@
+* {
+    --main-brigth: white;
+    --main-dark: #8c8f8d;
+    --main-text-color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.text_block {
+  width: 90%;
+}
+
+.title {
+    margin: 0;
+    padding: 10px;
+}
+
+.container-box {
+    color: var(--main-text-color);
+    background-color: var(--main-brigth);
+
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+}
+
+  .switch_input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  label {
+    position: absolute;
+    top: 30px;
+    right: 80px;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-dark);
+    border-radius: 34px;
+    transition: 400ms;
+  }
+  
+  .slider:before {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--main-brigth);
+    border-radius: 50%;
+    transition: 400ms;
+  }
+
+  input:not(:checked) + label:before {
+      content: "";
+      position: absolute;
+      left: -40px;
+      top: 4px;
+      
+      display: block;
+      background-image: url("./images/sun.svg");
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      
+      width: 26px;
+      height: 26px;
+      
+  }
+
+  input:checked ~ .container-box {
+    color: var(--main-brigth);
+    background-color: var(--main-dark);
+  }
+
+  input:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 74px;
+    top: 4px;
+    
+    display: block;
+    background-image: url("./images/moon.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    
+    width: 26px;
+    height: 26px;
+    
+}
+  
+  input:checked + label > .slider {
+    background-color: var(--main-brigth);
+  }
+
+  input:checked + label > .slider:before {
+    background-color: var(--main-dark);
+    transform: translateX(26px);
+  }
+  
